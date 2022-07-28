@@ -2,7 +2,6 @@ import numpy as np
 from matplotlib import pyplot as plt
 import math
 import scipy
-
 k_nas = np.load("k_nas.npy", 'r')
 k_por = np.load("k_pors.npy",'r')
 
