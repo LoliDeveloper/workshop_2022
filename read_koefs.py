@@ -6,6 +6,9 @@ import math
 
 k_por = []
 k_nas = []
+if len(sys.argv[1::]) < 1:
+    print("Введите аргументы(файлы .las)")
+    return
 for arg in sys.argv[1::]:
     las = lasio.read(arg)
     Keys=las.keys()
