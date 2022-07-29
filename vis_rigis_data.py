@@ -22,7 +22,7 @@ def expection(data = []):
 
 def visualize_data(data = [], _div = 5, x_label = 'x_label', y_label = 'y_label'):
     data_count = [0 for x in range(_div)]
-
+    print("len data = ", len(data))
     max_data = max(data)+0.01
     min_data = min(data)
     delta = max_data - min_data
@@ -48,8 +48,9 @@ def visualize_data(data = [], _div = 5, x_label = 'x_label', y_label = 'y_label'
     print('d = ', d)
     x = steps
     ax.plot(x, normal_(x, e, d), label = 'Нормальное распределение')
+    print("integral = ", sum(step * normal_(x,e,d)))
     #ax.plot(x, x**2, 'test')
     plt.show()
 
-visualize_data(k_nas, 50, "Коэф насыщенности", "кол-во скважин")
-visualize_data(k_por, 50, "Коэф пористости", "кол-во скважин")
+#visualize_data(k_nas, 150, "Коэф насыщенности", "кол-во скважин")
+#visualize_data(k_por, 150, "Коэф пористости", "кол-во скважин")
