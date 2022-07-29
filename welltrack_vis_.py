@@ -21,7 +21,8 @@ for l in list_v:
     l[2] = l[2] *( -1)
 vertices = np.array(list_v)
 np.save("well_vertices",vertices)
-print(vertices)
+print(max([x[0] for x in vertices]))
+print(min([x[1] for x in vertices]))
 
 plot_verticles(vertices=vertices, isosurf = True)
 

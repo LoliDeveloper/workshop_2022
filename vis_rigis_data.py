@@ -51,5 +51,5 @@ def visualize_data(data = [], _div = 5, x_label = 'x_label', y_label = 'y_label'
     #ax.plot(x, x**2, 'test')
     plt.show()
 
-visualize_data(k_nas, 150, "Коэф насыщенности", "кол-во скважин")
-visualize_data(k_por, 150, "Коэф пористости", "кол-во скважин")
+#visualize_data(k_nas, 150, "Коэф насыщенности", "кол-во скважин")
+#visualize_data(k_por, 150, "Коэф пористости", "кол-во скважин")
