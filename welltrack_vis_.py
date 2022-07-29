@@ -20,7 +20,7 @@ for x in well:
 for l in list_v:
     l[2] = l[2] *( -1)
 vertices = np.array(list_v)
-
+np.save("well_vertices",vertices)
 print(vertices)
 
 plot_verticles(vertices=vertices, isosurf = True)
