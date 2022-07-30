@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from vis_rigis_data import normal_, dispersion, expection
 import numpy as np
 
-def draw_height_dist(data, _div = 10):
+def height_dist(data, _div = 10):
     data_e_0 = [i for i in data if i != 0]
     min_h = min(data_e_0)
     max_h = max(data)+0.01
@@ -23,6 +23,7 @@ def draw_height_dist(data, _div = 10):
     ax.plot(x, normal_(x,e,d))
     ax.scatter(x,y)
     plt.show()
+    return normal(x,e,d)
 
 hs = list(map(float,np.load("heights.npy", 'r')))
 draw_height_dist(hs)
