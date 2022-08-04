@@ -21,9 +21,9 @@ def height_dist(data, _div = 10):
     med_sq = sum([(i-normal_([i],e,d)[0])**2 for i in data_e_0])/len(data_e_0)
     print(np.sqrt(med_sq))
     ax.plot(x, normal_(x,e,d))
-    ax.scatter(x,y)
+ #  ax.scatter(x,y)
     plt.show()
-    return normal(x,e,d)
+    return normal_(x,e,d)
 
 hs = list(map(float,np.load("heights.npy", 'r')))
-draw_height_dist(hs)
+height_dist(hs, 50)
