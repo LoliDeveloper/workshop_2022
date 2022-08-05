@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
-from vis_rigis_data import normal_, dispersion, expection
+from vis_rigis_data import lognormal_, dispersion, expection
 import numpy as np
-
+from scipy.stats import lognorm
 def height_dist(data, _div = 10):
     data_e_0 = [i for i in data if i != 0]
-    min_h = min(data_e_0)
-    max_h = max(data)+0.01
+    min_h = min(data)/2
+    max_h = max(data)*2+0.01
     delta = max_h - min_h
     step = delta / _div
     counter = 0
@@ -15,15 +15,16 @@ def height_dist(data, _div = 10):
         index = (i - min_h)//step
         y[int(index)] += 1
     fig, ax = plt.subplots()
-    ax.scatter(0, len([i for i in data if i == 0])/len(data))
+    #ax.scatter(0, len([i for i in data if i == 0])/len(data))
     e = expection(data_e_0)
-    d = dispersion(data_e_0, e)
-    med_sq = sum([(i-normal_([i],e,d)[0])**2 for i in data_e_0])/len(data_e_0)
-    print(np.sqrt(med_sq))
-    ax.plot(x, normal_(x,e,d))
+    print("e = ", e)
+    d = np.sqrt(dispersion(data_e_0, e))
+    
+    #ax.plot(x, lognorm(d).pdf(x))
+    print("d = ", d)
+    ax.plot(x, lognormal_(x, e, d), 'r-', lw=5, alpha=0.6, label='lognorm pdf')
  #  ax.scatter(x,y)
     plt.show()
-    return normal_(x,e,d)
 
 hs = list(map(float,np.load("heights.npy", 'r')))
-height_dist(hs, 50)
+height_dist(hs, 10500)

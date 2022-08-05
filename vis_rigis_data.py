@@ -6,8 +6,13 @@ import scipy
 k_nas = np.load("k_nas.npy", 'r')
 k_por = np.load("k_pors.npy",'r')
 
-def normal_(x,e,d):
+def normal_(x, e, d):
     return 1/(np.sqrt(2*np.pi))/np.sqrt(d)*np.exp([-1/2*(((a-e)/np.sqrt(d))**2) for a in x ])    
+
+def lognormal_(x, e, d):
+    return [np.exp(-(np.log(a)-e)**2/(2*(d**2)))/(a*d*np.sqrt(2*np.pi)) for a in x]
+
+
 
 def dispersion(data = [], expection=0):
     _sum = 0
