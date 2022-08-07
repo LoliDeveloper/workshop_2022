@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from vis_rigis_data import lognormal_, dispersion, expection
 import numpy as np
 from scipy.stats import lognorm
+
 def height_dist(data, _div = 10):
     data_e_0 = [i for i in data if i != 0]
     min_h = min(data)/2
