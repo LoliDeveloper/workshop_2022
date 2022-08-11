@@ -3,8 +3,6 @@ from matplotlib import pyplot as plt
 import math
 import scipy
 
-k_nas = np.load("k_nas.npy", 'r')
-k_por = np.load("k_pors.npy",'r')
 
 def normal_(x, e, d):
     return 1/(np.sqrt(2*np.pi))/np.sqrt(d)*np.exp([-1/2*(((a-e)/np.sqrt(d))**2) for a in x ])    
@@ -46,7 +44,8 @@ def visualize_data(data = [], _div = 5, x_label = 'x_label', y_label = 'y_label'
     ax.set_ylabel(y_label)
     ax.set_xlabel(x_label)
     fig.tight_layout();
-    #ax.plot(steps, data_count)
+    print("hist")
+    ax.plot(steps, data_count)
     e = expection(data)
     print('e = ', e)
     d = dispersion(data, e)
@@ -54,6 +53,7 @@ def visualize_data(data = [], _div = 5, x_label = 'x_label', y_label = 'y_label'
     x = steps
     ax.plot(x, normal_(x, e, d), label = 'Нормальное распределение')
     print("integral = ", sum(step * normal_(x,e,d)))
+
     #ax.plot(x, x**2, 'test')
     plt.show()
 
