@@ -9,11 +9,12 @@ def get_value(k_gas,k_por,h,S,mat,P):
     value = []
     for i in range(len(k_gas)):
         temp_value.append(k_gas[i]*k_por[i]*h[i]/2)
-    for i in range(k_gas):
+    for i in range(len(k_gas)):
         for V in range(len(mat[i])):
-            if V>0:
-                value[i]+=mat[i][V]/P[i]*temp_value[V]
-        value[i]=[S[i]*x for x in value[i]]
+            if V > 0:
+                temp_value[i] += mat[i][V] / P[i] * temp_value[V]
+        temp_value[i] = [S[i] * x for x in temp_value]
+    return temp_value
 
 
 # In[ ]:

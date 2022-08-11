@@ -29,8 +29,9 @@ def read_RIGIS():
             if(len(tmp_dept) == 0):
                 tmp_dept.append(0)
             ar_dept.append(tmp_dept[-1]-tmp_dept[0])
-
-            for k in kp:
+            k_por.append(kp)
+            k_nas.append(kgt)
+            '''for k in kp:
                 if not (math.isnan(k)): 
                     k_por.append(k)
         
@@ -38,7 +39,7 @@ def read_RIGIS():
             #    print(k)
                 if not (math.isnan(k)):
                     k_nas.append(k)
-
+'''
         np.save("k_pors", k_por)
         np.save("k_nas", k_nas)
         np.save("heights", ar_dept)
